@@ -1,0 +1,16 @@
+body {
+  padding-top: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar-page-header {
+	top: 0;
+}
+
+.form-add-product {
+	display: inline;
+}

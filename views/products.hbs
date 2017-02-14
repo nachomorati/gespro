@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<h2>Listado de productos</h2>
+		<div class="col-sm-3">
+			<input type="text" name="code_filter" id="code_filter" placeholder="filtrar por codigo" class="form-control">
+		</div>
+	</div>
+	<div class="row">
+		<div class="table-responsive">          
+		  <table class="table">
+		    <thead>
+		      <tr>
+		        <th>#</th>
+		        <th>Descripcion</th>
+		        <th>Stock</th>
+		        <th>Comentarios</th>
+		        <th></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    	{{#each products}}
+		      <tr>
+		        <td>{{code}}</td>
+		        <td>{{name}}</td>
+		        <td>{{stock}}</td>
+		        <td>{{comment}}</td>
+		        <td><a href="/product/{{_id}}">editar</a></td>
+		      </tr>
+		      	{{/each}}
+		    </tbody>
+		  </table>
+		  </div>
+		</div>
+	</div>
+</div>

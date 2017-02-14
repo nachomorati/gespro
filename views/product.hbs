@@ -1,0 +1,43 @@
+<div class="container">
+	<a href="/products">volver</a>
+	<div class="jumbotron">
+		<div class="container text-center">
+			<h1>{{capitalize product.name}}</h1>
+		</div>
+	</div>
+	<ul class="list-group" id="items-list">
+		<li class="list-group-item">Código: {{product.code}}</li>
+		<li class="list-group-item">Comentarios: {{product.comment}}</li>
+		<li class="list-group-item">Stock: {{product.stock}}</li>
+		<li class="list-group-item">Proveedor: {{product.provider}}</li>
+	</ul>
+
+
+
+	<form action="/product/edit/{{product._id}}?_method=PUT" id="edit_product" class="form" method="POST">
+		<div class="form-group">
+			<label for="name">Nombre</label>
+			<input type="text" class="form-control" name="name" value="{{product.name}}">
+		</div>
+		<div class="form-group">
+			<label for="name">Código</label>
+			<input type="text" class="form-control" name="code" value="{{product.code}}" >
+		</div>
+		<div class="form-group">
+			<label for="name">Comentario</label>
+			<input type="text" class="form-control" name="comment" value="{{product.comment}}" >
+		</div>
+		<div class="form-group">
+			<label for="name">Stock</label>
+			<input type="text" class="form-control" name="stock" value="{{product.stock}}">
+		</div>
+		<div class="form-group">
+			<label for="name">Proveedor</label>
+			<input type="text" class="form-control" name="provider" value="{{product.provider}}">
+		</div>
+		<button class="btn btn-success" type="submit">Modificar</button>
+	</form>
+
+	<button class="btn btn-edit" id="jq_btn_show_edit">Editar</button>
+	<a href="/confirm/{{product._id}}">remover</a>
+</div>

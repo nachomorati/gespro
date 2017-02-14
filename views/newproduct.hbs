@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="row">
+		<form action="/products" method="POST" class="form col-sm-10 col-sm-offset-1" role="form" id="form-add-product">
+			<h2 class="text-success">Cargar Nuevo Producto</h2>
+			<div class="row">
+				<div class="form-group col-sm-12">
+					<label for="name">Nombre</label>
+					<input class="form-control" type="text" name="name" placeholder="ej: sillon, cama, mesa, etc." />
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-sm-4">
+					<label for="code">Codigo</label>
+					<input class="form-control" type="text" name="code" placeholder="Aqui va el codigo del producto" />
+				</div>
+				<div class="form-group col-sm-4">
+					<label for="stock">Stock</label>
+					<input class="form-control" type="text" name="stock" placeholder="Aqui va el stock" />
+				</div>
+				<div class="form-group col-sm-4">
+					<label for="provider">Proveedor</label>
+					<input class="form-control" type="text" name="provider" placeholder="Proveedor..." />
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-sm-12">
+					<label for="comment">Comentario</label>
+					<input class="form-control" type="text" name="comment" placeholder="Aqui va cualquier comentario sobre el producto" />
+				</div>
+			</div>
+			<button class="btn btn-success" type="submit">Guardar</button>
+		</form>
+	</div>
+</div>
