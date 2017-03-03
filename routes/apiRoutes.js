@@ -9,10 +9,13 @@ function sendJson (res, status, data){
 }
 
 router.get('/products', function (req, res) {
-  Product.find({}, function (err, docs) {
+  //console.log(req.query);
+  var re = new RegExp(req.query.filtro, 'i');
+  Product.find({ $or: [{code: re}, {name: re}]}, function (err, docs) {
     if (err) {
       return sendJson(res, 404, {msg: 'Error buscando los documentos'});
     }
+    //console.log(docs);
     return sendJson(res, 200, docs);
   });
 });

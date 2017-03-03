@@ -24,9 +24,29 @@ $(document).ready(function () {
 	//FILTRAR UN PRODUCTO EN LA TABLA DE PRODUCTOS POR SU CODIGO
 	$('#code_filter').on('change', function (e) {
 		//console.log(e.currentTarget.value);
-		$.get('/filter_by_code', {filter: e.currentTarget.value}, function (data) {
-			console.log(data)
-		})
+		$.ajax('/api/products', {
+			data: {filtro: e.currentTarget.value},
+			error: function (jqXHR, error, errorThrown) {
+				if (error) {
+					console.log(error, errorThrown);
+				}
+			},
+			success: function (data, status, jqXHR){
+				var html = '';
+				data.forEach(function (item) {
+					html += `
+					<tr>
+						<td>${item.code}</td>
+						<td>${item.name}</td>
+						<td>${item.stock}</td>
+						<td>${item.comment}</td>
+						<td><a href="/product/${item._id}">editar</a></td>
+					</tr>
+					`;
+				});
+				$('#products_table tbody').html(html);
+			}
+		});
 	})
 
 }); //document.ready
