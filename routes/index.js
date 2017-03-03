@@ -16,7 +16,7 @@ router.post('/products', function (req, res) {
 		//res.status(201).json({'msg':'Document inserted', 'success':true})
 		res.redirect('/products');
 	})
-	
+
 });
 
 router.get('/products', function (req, res) {
@@ -24,8 +24,11 @@ router.get('/products', function (req, res) {
 		if (err) {
 			return res.json({'msg':'Error while finding in the DB.', 'success':false, 'error':err});
 		}
+		var docs = docs.sort(function (a, b) {
+			return a.code - b.code;
+		});
 		res.render('products', {products: docs});
-	})
+	});
 })
 
 router.get('/product/:id', function (req, res) {
@@ -84,7 +87,7 @@ router.get('/newsale', function (req, res) {
 router.post('/savesale', function (req, res) {
 	//console.log(req.body);
 	var cant = 0 - Number(req.body.qty);
-	
+
 	Product.findOne({_id:req.body.product}, function (err, doc) {
 		if (err) {
 			return res.json({'msg':'Error while finding in the DB.', 'success':false, 'error':err.toString()});
@@ -111,12 +114,12 @@ router.post('/savesale', function (req, res) {
 				if (err) {
 					return res.json({'msg':'Error inserting the data', 'success':false, 'Error':err.toString()})
 				}
-				res.redirect('/newsale');		
+				res.redirect('/newsale');
 			})
-			
+
 		})
-		
-	});	
+
+	});
 })
 
 router.get('/getproduct', function (req, res) {
@@ -135,7 +138,7 @@ router.get('/newproduct', function (req, res) {
 
 router.get('/filter_by_code', function (req, res) {
 	var filter = req.query.filter;
-	
+
 	Product.find({code: filter}, function (err, docs) {
 		if (err) {
 			req.flash('error', 'Error finding in the db');
@@ -144,10 +147,10 @@ router.get('/filter_by_code', function (req, res) {
 			})
 		}
 		console.log(docs);
-		res.json(docs);	
+		res.json(docs);
 	})
 
-	
+
 })
 
 module.exports = router;

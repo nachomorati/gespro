@@ -1,4 +1,5 @@
 <div class="container">
+	<p class="error"></p>
 	<div class="row">
 		<h2>Listado de productos</h2>
 		<div class="col-sm-3">
@@ -6,14 +7,14 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="table-responsive">          
-		  <table class="table">
+		<div class="table-responsive">
+		  <table class="table" id="products_table">
 		    <thead>
 		      <tr>
-		        <th>#</th>
-		        <th>Descripcion</th>
-		        <th>Stock</th>
-		        <th>Comentarios</th>
+		        <th class="t_head" id="code">#</th>
+		        <th class="t_head" id="name">Descripcion</th>
+		        <th class="t_head" id="stock">Stock</th>
+		        <th class="t_head" id="comment">Comentarios</th>
 		        <th></th>
 		      </tr>
 		    </thead>

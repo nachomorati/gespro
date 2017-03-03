@@ -14,3 +14,8 @@ a {
 .form-add-product {
 	display: inline;
 }
+
+#products_table thead {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.2);
+}
