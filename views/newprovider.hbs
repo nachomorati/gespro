@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<form action="/providers" method="POST" class="form col-sm-10 col-sm-offset-1" role="form" id="form-add-provider">
+			<h2 class="text-success">Cargar Nuevo Proveedor</h2>
+			<div class="row">
+				<div class="form-group col-sm-12">
+					<label for="name">Nombre</label>
+					<input class="form-control" type="text" name="name" placeholder="Colocar el nombre del proveedor" required />
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-sm-8">
+					<label for="address">Direccion</label>
+					<input class="form-control" type="text" name="address" placeholder="Colocar la direccion del proveedor" />
+				</div>
+				<div class="form-group col-sm-4">
+					<label for="phone">Telefono</label>
+					<input class="form-control" type="text" name="phone" placeholder="Numero de telefono..." />
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-sm-12">
+					<label for="notes">Notas</label>
+					<input class="form-control" type="text" name="notes" placeholder="Colocar cualquier nota o comentario acerca del proveedor" />
+				</div>
+			</div>
+			<button class="btn btn-success" type="submit">Guardar</button>
+		</form>
+	</div>
+</div>

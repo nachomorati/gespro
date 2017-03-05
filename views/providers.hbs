@@ -1,0 +1,36 @@
+<div class="container">
+	<p class="error"></p>
+	<div class="row encabezado">
+		<h2>Listado de proveedores</h2>
+		<div class="col-sm-6 col-sm-offset-6 form-group">
+			<input type="text" name="code_filter" id="code_filter" placeholder="filtrar por codigo o nombre" class="form-control">
+		</div>
+	</div>
+	<div class="row">
+		<div class="table-responsive">
+		  <table class="table" id="providers_table">
+		    <thead>
+		      <tr>
+		        <th class="t_head" id="name">Nombre</th>
+		        <th class="t_head" id="address">Direccion</th>
+		        <th class="t_head" id="phone">Telefono</th>
+		        <th class="t_head" id="notes">Notas</th>
+		        <th></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    	{{#each providers}}
+		      <tr>
+		        <td>{{name}}</td>
+		        <td>{{address}}</td>
+		        <td>{{phone}}</td>
+		        <td>{{notes}}</td>
+		        <td><a href="/product/{{_id}}">editar</a></td>
+		      </tr>
+		      	{{/each}}
+		    </tbody>
+		  </table>
+		  </div>
+		</div>
+	</div>
+</div>

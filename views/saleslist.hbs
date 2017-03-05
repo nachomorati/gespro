@@ -1,0 +1,36 @@
+<div class="container">
+	<p class="error"></p>
+	<div class="row encabezado">
+		<h2>Ventas</h2>
+		<div class="col-sm-6 col-sm-offset-6 form-group">
+			<input type="text" name="code_filter" id="code_filter" placeholder="filtrar por codigo o nombre" class="form-control">
+		</div>
+	</div>
+	<div class="row">
+		<div class="table-responsive">
+		  <table class="table" id="products_table">
+		    <thead>
+		      <tr>
+		        <th class="t_head" id="product">Producto</th>
+		        <th class="t_head" id="qty">Cantidad</th>
+		        <th class="t_head" id="sale_date">Fecha</th>
+		        <th class="t_head" id="seller">Vendedor</th>
+		        <th></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    	{{#each ventas}}
+		      <tr>
+		        <td>{{product}}</td>
+		        <td>{{qty}}</td>
+		        <td>{{sale_date}}</td>
+		        <td>{{seller}}</td>
+		        
+		      </tr>
+		      	{{/each}}
+		    </tbody>
+		  </table>
+		  </div>
+		</div>
+	</div>
+</div>

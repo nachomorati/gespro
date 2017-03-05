@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Product = require('../models/products');
 var Sales = require('../models/sales');
+var Providers = require('../models/providers');
 
 /* GET home page. */
 router.get('/', function (req, res) {
@@ -71,6 +72,37 @@ router.get('/sales', function (req, res) {
 	res.render('sales');
 });
 
+router.get('/saleslist', function (req, res) {
+	Sales.find({}, function (err, ventas) {
+		if (err) {
+			res.render('error', {
+				error: {
+					status: 400,
+					stack: err.stack
+				},
+				message: 'Error cargando la pagina.'
+			});
+		}
+		//console.log(ventas);
+		Product.find({}, function (err, productos) {
+			if (err) {
+				return console.log(err);
+			}
+			var ventas_modificado = [];
+			var _ventas = ventas.forEach(function (venta) {
+				productos.forEach(function (producto) {
+					if (venta.product === producto._id) {
+						venta.product = producto.name;
+						ventas_modificado.push(venta);
+					}
+				});
+			});
+			//console.log(ventas_modificado);
+			res.render('saleslist', {ventas: ventas_modificado});
+		});
+	});
+});
+
 router.get('/newsale', function (req, res) {
 	Product
 		.find({}, function (err, docs) {
@@ -138,7 +170,6 @@ router.get('/newproduct', function (req, res) {
 
 router.get('/filter_by_code', function (req, res) {
 	var filter = req.query.filter;
-
 	Product.find({code: filter}, function (err, docs) {
 		if (err) {
 			req.flash('error', 'Error finding in the db');
@@ -148,9 +179,33 @@ router.get('/filter_by_code', function (req, res) {
 		}
 		console.log(docs);
 		res.json(docs);
-	})
+	});
+});
 
+router.get('/providers', function (req, res) {
+	Providers.find({}, function (err, providers) {
+		if (err) {
+			res.render('error', {
+				error: err
+			});
+		}
+		res.render('providers', {providers: providers});
+	});
+});
 
-})
+router.get('/newprovider', function (req, res) {
+	res.render('newprovider');
+});
+
+router.post('/providers', function (req, res) {
+	Providers.insert(req.body, function (err) {
+		if (err) {
+			res.render('error', {
+				error: err
+			});
+		}
+		res.redirect('/providers');
+	});
+});
 
 module.exports = router;
