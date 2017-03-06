@@ -5,3 +5,11 @@
 {"name":"Silla marron","_id":"wc1iMFpdILDYF2uq","code":"AR8320","comment":"es una silla marron de plastico","stock":70,"provider":"el gordo motoneta"}
 {"name":"Silla blanca","_id":"xXaYr2eLGpnc9Ylf","code":"A789292","comment":"Sillas blancas comunes (4 patas)","stock":"4","provider":"don pereyra"}
 {"$$indexCreated":{"fieldName":"name","unique":true,"sparse":false}}
+{"$$deleted":true,"_id":"FIASKJpRDPnivD1Q"}
+{"$$deleted":true,"_id":"LImUXBhPLKEEDQfE"}
+{"$$deleted":true,"_id":"an2LugKaKrCkAcQ8"}
+{"$$deleted":true,"_id":"at0UVhH3NMQkhmXS"}
+{"$$deleted":true,"_id":"wc1iMFpdILDYF2uq"}
+{"$$deleted":true,"_id":"xXaYr2eLGpnc9Ylf"}
+{"name":"Silla de roble","code":"A44-999","stock":"20","provider":"Elsi yero","comment":"Con descuento con la palabra clave: \"Como sera la laguna\"","_id":"lkGknYSLKxkBYzxv"}
+{"name":"Silla de roble","code":"A44-999","stock":"20","provider":"Elsi yero","comment":"Sillas barnizadas y lijadas","_id":"lkGknYSLKxkBYzxv"}

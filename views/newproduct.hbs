@@ -13,13 +13,18 @@
 					<label for="code">Codigo</label>
 					<input class="form-control" type="text" name="code" placeholder="Aqui va el codigo del producto" />
 				</div>
-				<div class="form-group col-sm-4">
+				<div class="form-group col-sm-3">
 					<label for="stock">Stock</label>
 					<input class="form-control" type="text" name="stock" placeholder="Aqui va el stock" />
 				</div>
-				<div class="form-group col-sm-4">
+				<div class="form-group col-sm-5">
 					<label for="provider">Proveedor</label>
-					<input class="form-control" type="text" name="provider" placeholder="Proveedor..." />
+					<select name="provider" id="provider" class="form-control" required>
+						<option value="" selected></option>
+						{{#each providers}}
+							<option value="{{name}}">{{name}}</option>
+						{{/each}}
+					</select>
 				</div>
 			</div>
 			<div class="row">

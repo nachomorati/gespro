@@ -165,7 +165,13 @@ router.get('/getproduct', function (req, res) {
 })
 
 router.get('/newproduct', function (req, res) {
-	res.render('newproduct');
+	Providers.find({}, function (err, providers) {
+		if (err) {
+			return console.log(err);
+		}
+		res.locals.providers = providers;
+		res.render('newproduct');
+	});
 })
 
 router.get('/filter_by_code', function (req, res) {
